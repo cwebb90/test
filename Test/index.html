@@ -5,12 +5,17 @@
     <meta charset="utf-8" />
     <title>TypeScript HTML App</title>
     <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="app.js"></script>
+    <script src="Scripts/jquery-1.11.3.js"></script>
+    <script src="Scripts/pixi.min.js"></script>
+    <script src="test.js"></script>
+    <script src="player.js"></script>
 </head>
 <body>
     <h1>TypeScript HTML App</h1>
-
     <div id="content"></div>
     <div id="screen"></div>
+    <script>
+        $('body').append(engine.renderer.view);
+    </script>
 </body>
 </html>
