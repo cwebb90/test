@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-
+<!--http://ezelia.com/2013/pixi-tutorial-->
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,15 +7,31 @@
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="Scripts/jquery-1.11.3.js"></script>
     <script src="Scripts/pixi.min.js"></script>
+    <script src="components.js"></script>
     <script src="test.js"></script>
-    <script src="player.js"></script>
+    <!--<script src="player.js"></script>-->
+    <script src="Scene.js"></script>
+    <script src="SceneManager.js"></script>
+    
 </head>
 <body>
     <h1>TypeScript HTML App</h1>
     <div id="content"></div>
     <div id="screen"></div>
-    <script>
-        $('body').append(engine.renderer.view);
-    </script>
 </body>
 </html>
+<script>
+    var scenemanager = test.ScenesManager;
+    scenemanager.create(300, 400);
+    var game = scenemanager.createScene('game');
+    var bunny = PIXI.Sprite.fromImage("img/bunny.png");
+    bunny.anchor.x = 0.5; //this is cool
+    bunny.anchor.y = 0.5; //it sets where the center of the sprite is!
+    bunny.position.x = 50;
+    bunny.position.y = 50;
+    game.addChild(bunny);
+    scenemanager.gotToScene('game');
+    game.onUpdate(function () {
+        bunny.rotation += 0.1;
+    });
+</script>
