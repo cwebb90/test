@@ -12,6 +12,7 @@
     <!--<script src="player.js"></script>-->
     <script src="Scene.js"></script>
     <script src="SceneManager.js"></script>
+    <script src="GameScene.js"></script>
     
 </head>
 <body>
@@ -21,17 +22,12 @@
 </body>
 </html>
 <script>
-    var scenemanager = test.ScenesManager;
+    var scenemanager = test.ScenesManager; //reference to scenemanager, not an actual dude
     scenemanager.create(300, 400);
-    var game = scenemanager.createScene('game');
-    var bunny = PIXI.Sprite.fromImage("img/bunny.png");
-    bunny.anchor.x = 0.5; //this is cool
-    bunny.anchor.y = 0.5; //it sets where the center of the sprite is!
-    bunny.position.x = 50;
-    bunny.position.y = 50;
-    game.addChild(bunny);
+    var game = scenemanager.createScene('game', test.GameScene);
+    var blank = scenemanager.create('blank');
+
+    game.update();
+
     scenemanager.gotToScene('game');
-    game.onUpdate(function () {
-        bunny.rotation += 0.1;
-    });
 </script>

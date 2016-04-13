@@ -5,7 +5,7 @@
 ///<reference path="Scene.ts"/>
 module test {
     export class ScenesManager {
-        private static scenes: any = {}; //should be a hashmap??? but a JS object is fine too - apparently. reading the tutorial may help explain
+        private static scenes: any = {}; //basically this is a key-value indexing guy, so instead of a flat number being the index its a string. i think.
         private static currentScene: Scene;
         public static renderer: PIXI.WebGLRenderer;
 
@@ -25,9 +25,10 @@ module test {
             ScenesManager.renderer.render(this.currentScene);
         }
 
-        public static createScene(id: string): Scene { //why is id a string? probably something to do with key-value?
+
+        public static createScene(id: string, TScene: new () => Scene = Scene): Scene { //wtf. takes id and a Scene, this syntax means we only take a class of type scene and its default value is scene. OR we do it the cheap easier looking way.
             if (ScenesManager.scenes[id]) { //will return undefined if it already exists
-                return undefined; //i like how it breaks here instead of having an else, elses are ugly
+                return undefined;
             }
 
             var scene = new Scene();

@@ -23,9 +23,10 @@ var test;
             this.currentScene.update();
             ScenesManager.renderer.render(this.currentScene);
         };
-        ScenesManager.createScene = function (id) {
+        ScenesManager.createScene = function (id, TScene) {
+            if (TScene === void 0) { TScene = test.Scene; }
             if (ScenesManager.scenes[id]) {
-                return undefined; //i like how it breaks here instead of having an else, elses are ugly
+                return undefined;
             }
             var scene = new test.Scene();
             ScenesManager.scenes[id] = scene;
@@ -42,7 +43,7 @@ var test;
             }
             return false;
         };
-        ScenesManager.scenes = {}; //should be a hashmap??? but a JS object is fine too - apparently. reading the tutorial may help explain
+        ScenesManager.scenes = {}; //basically this is a key-value indexing guy, so instead of a flat number being the index its a string. i think.
         return ScenesManager;
     })();
     test.ScenesManager = ScenesManager;
