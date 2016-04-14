@@ -19,7 +19,6 @@ var test;
             this.addChild(this.bunny);
         }
         GameScene.prototype.update = function () {
-            console.log('???');
             _super.prototype.update.call(this);
             this.bunny.rotation += 0.1;
         };

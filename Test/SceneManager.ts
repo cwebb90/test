@@ -10,10 +10,10 @@ module test {
         public static renderer: PIXI.WebGLRenderer;
 
         public static create(width: number, height: number) { //initiate pixi.renderer and start game loop
-            if (ScenesManager.renderer) return this; //??
+            if (ScenesManager.renderer) return this; //if it already exists then return it.
             ScenesManager.renderer = new PIXI.WebGLRenderer(width, height);
             document.body.appendChild(ScenesManager.renderer.view);
-            requestAnimationFrame(ScenesManager.renderloop); //??
+            requestAnimationFrame(ScenesManager.renderloop); //start rendering it as soon as its made
             return this;
         }
 
@@ -31,12 +31,13 @@ module test {
                 return undefined;
             }
 
-            var scene = new Scene();
+            var scene = new TScene();
             ScenesManager.scenes[id] = scene;
             return scene;
         }
 
-        public static gotToScene(id: string): boolean {
+        public static goToScene(id: string): boolean {
+            console.log(ScenesManager.scenes[id]);
             if (ScenesManager.scenes[id]) {
                 if (ScenesManager.currentScene) { //pauses current scene before switching to another scene
                     ScenesManager.currentScene.pause();

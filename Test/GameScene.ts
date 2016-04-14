@@ -6,7 +6,7 @@ module test {
         private bunny: PIXI.Sprite;
 
         constructor() {
-            super();
+            super();           
 
             this.bunny = PIXI.Sprite.fromImage("img/bunny.png");
             this.bunny.anchor.x = 0.5;
@@ -19,9 +19,8 @@ module test {
         }
 
         public update() {
-            console.log('???');
             super.update();
-            this.bunny.rotation += 0.1
+            this.bunny.rotation += 0.1;
         }
     }
 }

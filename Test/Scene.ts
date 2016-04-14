@@ -9,7 +9,7 @@ module test {
         private paused: boolean = false;
         private updateCB = function () { };
 
-        constructor() {
+        constructor() {            
             super();
         }
 
@@ -17,7 +17,7 @@ module test {
             this.updateCB = updateCB;
         }
 
-        public update() {
+        public update() {//well this gets called, which is nice.
             this.updateCB();
         }
 

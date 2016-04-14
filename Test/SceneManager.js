@@ -9,10 +9,10 @@ var test;
         }
         ScenesManager.create = function (width, height) {
             if (ScenesManager.renderer)
-                return this; //??
+                return this; //if it already exists then return it.
             ScenesManager.renderer = new PIXI.WebGLRenderer(width, height);
             document.body.appendChild(ScenesManager.renderer.view);
-            requestAnimationFrame(ScenesManager.renderloop); //??
+            requestAnimationFrame(ScenesManager.renderloop); //start rendering it as soon as its made
             return this;
         };
         ScenesManager.renderloop = function () {
@@ -28,11 +28,12 @@ var test;
             if (ScenesManager.scenes[id]) {
                 return undefined;
             }
-            var scene = new test.Scene();
+            var scene = new TScene();
             ScenesManager.scenes[id] = scene;
             return scene;
         };
-        ScenesManager.gotToScene = function (id) {
+        ScenesManager.goToScene = function (id) {
+            console.log(ScenesManager.scenes[id]);
             if (ScenesManager.scenes[id]) {
                 if (ScenesManager.currentScene) {
                     ScenesManager.currentScene.pause();

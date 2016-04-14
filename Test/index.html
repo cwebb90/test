@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="Scripts/jquery-1.11.3.js"></script>
     <script src="Scripts/pixi.min.js"></script>
-    <script src="components.js"></script>
-    <script src="test.js"></script>
+    <!--<script src="components.js"></script>
+    <script src="test.js"></script>-->
     <!--<script src="player.js"></script>-->
     <script src="Scene.js"></script>
     <script src="SceneManager.js"></script>
@@ -16,18 +16,26 @@
     
 </head>
 <body>
-    <h1>TypeScript HTML App</h1>
-    <div id="content"></div>
-    <div id="screen"></div>
+    <h1>TypeScript HTML App</h1>    
+    <script>
+        var scenemanager = test.ScenesManager; //reference to scenemanager, not an actual dude
+        scenemanager.create(320, 480);
+        var game = scenemanager.createScene('game', test.GameScene);
+        var blank = scenemanager.createScene('blank'); //createSCENE, was missing the scene. dumb
+
+        scenemanager.goToScene('game');
+
+        $(function () {
+            $('#goToGame').click(function () {
+                scenemanager.goToScene('game');
+            });
+            $('#goToBlank').click(function () {
+                scenemanager.goToScene('blank');
+            });
+        })
+    </script>
+
+    <button id="goToGame">Switch to Game scene</button>
+    <button id="goToBlank">Switch to Blank scene</button>
 </body>
 </html>
-<script>
-    var scenemanager = test.ScenesManager; //reference to scenemanager, not an actual dude
-    scenemanager.create(300, 400);
-    var game = scenemanager.createScene('game', test.GameScene);
-    var blank = scenemanager.create('blank');
-
-    game.update();
-
-    scenemanager.gotToScene('game');
-</script>
