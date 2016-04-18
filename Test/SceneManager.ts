@@ -1,6 +1,11 @@
 ﻿//this should help for later down the line when we want to switch between different states.
 //its not necessary for right now, but would be nice to get a working project going.
 
+//im pretty sure that this is some type of object ive not come across before.
+//we only create references to it? its like it exists mainly here and you can just call it by itself
+//instead of creating an actual ScenesManagerObject.
+//i need to research it more but if it works how i think that it works, its really really cool
+
 ///<reference path="Scripts/typings/pixi.js/pixi.js.d.ts" />
 ///<reference path="Scene.ts"/>
 module test {

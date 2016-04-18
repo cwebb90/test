@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="app.css" type="text/css" />
     <script src="Scripts/jquery-1.11.3.js"></script>
     <script src="Scripts/pixi.min.js"></script>
-    <!--<script src="components.js"></script>
-    <script src="test.js"></script>-->
+    <script src="components.js"></script>
+    <script src="test.js"></script>
     <!--<script src="player.js"></script>-->
     <script src="Scene.js"></script>
     <script src="SceneManager.js"></script>
@@ -26,7 +26,7 @@
         var intro = scenemanager.createScene('intro', test.IntroScene);
         var menu = scenemanager.createScene('menu', test.MenuScene)
 
-        scenemanager.goToScene('intro');
+        scenemanager.goToScene('game');
 
         $(function () {
             $('#goToGame').click(function () {

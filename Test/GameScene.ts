@@ -1,9 +1,13 @@
 ﻿///<reference path="Scene.ts" />
+///<reference path="components.ts" />
 ///<reference path="Scripts/typings/pixi.js/pixi.js.d.ts" />
 //game logic goes here.
 module test {
     export class GameScene extends Scene {
         private bunny: PIXI.Sprite;
+
+        private square: test.BaseShape;
+        private shape: test.Shape_I;
 
         constructor() {
             super();           
@@ -14,6 +18,10 @@ module test {
             this.bunny.position.x = 50;
             this.bunny.position.y = 50;
             this.addChild(this.bunny);
+
+            this.shape = new test.Shape_I();
+
+            this.addChild(this.shape.graphics);
 
             var that = this;
             var button = new PIXI.Sprite(PIXI.Texture.fromImage("img/MenuButton.png"));

@@ -15,6 +15,8 @@ var test;
             this.bunny.position.x = 50;
             this.bunny.position.y = 50;
             this.addChild(this.bunny);
+            this.shape = new test.Shape_I();
+            this.addChild(this.shape.graphics);
             var that = this;
             var button = new PIXI.Sprite(PIXI.Texture.fromImage("img/MenuButton.png"));
             button.position.x = test.ScenesManager.defaultWidth - 200;
