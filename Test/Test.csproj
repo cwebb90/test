@@ -24,18 +24,31 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="index.html" />
+    <Content Include="Scripts\jquery-1.11.3.js" />
+    <Content Include="Scripts\pixi.js" />
+    <Content Include="Scripts\pixi.min.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="components.ts" />
+    <TypeScriptCompile Include="GameScene.ts" />
+    <TypeScriptCompile Include="IntroScene.ts" />
+    <TypeScriptCompile Include="MenuScene.ts" />
+    <TypeScriptCompile Include="player.ts" />
+    <TypeScriptCompile Include="Scene.ts" />
+    <TypeScriptCompile Include="SceneManager.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\pixi.js\pixi.js.d.ts" />
+    <TypeScriptCompile Include="test.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
