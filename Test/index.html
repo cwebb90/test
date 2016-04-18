@@ -13,7 +13,8 @@
     <script src="Scene.js"></script>
     <script src="SceneManager.js"></script>
     <script src="GameScene.js"></script>
-    
+    <script src="MenuScene.js"></script>
+    <script src="IntroScene.js"></script>
 </head>
 <body>
     <h1>TypeScript HTML App</h1>    
@@ -22,8 +23,10 @@
         scenemanager.create(320, 480);
         var game = scenemanager.createScene('game', test.GameScene);
         var blank = scenemanager.createScene('blank'); //createSCENE, was missing the scene. dumb
+        var intro = scenemanager.createScene('intro', test.IntroScene);
+        var menu = scenemanager.createScene('menu', test.MenuScene)
 
-        scenemanager.goToScene('game');
+        scenemanager.goToScene('intro');
 
         $(function () {
             $('#goToGame').click(function () {

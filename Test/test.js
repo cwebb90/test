@@ -1,5 +1,3 @@
-/// <reference="Scripts/typings/jquery/jquery.d.ts" />
-/// <reference="Scripts/typings/pixi.js/pixi.js.d.ts" />
 var PIXEIngine = (function () {
     function PIXEIngine() {
         this.renderer = new PIXI.WebGLRenderer(400, 800);
@@ -12,8 +10,7 @@ var PIXEIngine = (function () {
     };
     PIXEIngine.prototype.init = function () {
         this.renderer.backgroundColor = 0x1099bb;
-        $('body').append(this.renderer.view); //this still doesnt work here.
+        $('body').append(this.renderer.view);
     };
     return PIXEIngine;
 })();
-//# sourceMappingURL=test.js.map

@@ -1,5 +1,3 @@
-///<reference path="Scene.ts" />
-///<reference path="Scripts/typings/pixi.js/pixi.js.d.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -17,6 +15,19 @@ var test;
             this.bunny.position.x = 50;
             this.bunny.position.y = 50;
             this.addChild(this.bunny);
+            var that = this;
+            var button = new PIXI.Sprite(PIXI.Texture.fromImage("img/MenuButton.png"));
+            button.position.x = test.ScenesManager.defaultWidth - 200;
+            button.scale.x = 0.5;
+            button.scale.y = 0.5;
+            button.on("click", function () {
+                if (that.isPaused())
+                    return;
+                test.ScenesManager.goToScene('menu');
+            });
+            button.interactive = true;
+            this.addChild(button);
+            this.interactive = true;
         }
         GameScene.prototype.update = function () {
             _super.prototype.update.call(this);
@@ -26,4 +37,3 @@ var test;
     })(test.Scene);
     test.GameScene = GameScene;
 })(test || (test = {}));
-//# sourceMappingURL=GameScene.js.map

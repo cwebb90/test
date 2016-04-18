@@ -14,12 +14,13 @@ class BaseShape {
 class Shape_I {
     
 }
-//we could just make the shapes in paint, it may well be easier.
+//we cant really make them outside and import them, 
+//because we'll need the ability to cut them up once lines have been made
+//if we can make an base square object that every higher object will be made from
 class Shape_O extends BaseShape {
     inners: PIXI.Graphics[] = new Array<PIXI.Graphics>();
 
     graph: PIXI.Graphics = new PIXI.Graphics();
-
     
     initialise() {
         var graph1: PIXI.Graphics = new PIXI.Graphics();

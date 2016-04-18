@@ -1,7 +1,3 @@
-//this should help for later down the line when we want to switch between different states.
-//its not necessary for right now, but would be nice to get a working project going.
-///<reference path="Scripts/typings/pixi.js/pixi.js.d.ts" />
-///<reference path="Scene.ts"/>
 var test;
 (function (test) {
     var ScenesManager = (function () {
@@ -9,17 +5,19 @@ var test;
         }
         ScenesManager.create = function (width, height) {
             if (ScenesManager.renderer)
-                return this; //if it already exists then return it.
+                return this;
+            this.defaultWidth = ScenesManager.width = width;
+            this.defaultHeight = ScenesManager.height = height;
             ScenesManager.renderer = new PIXI.WebGLRenderer(width, height);
             document.body.appendChild(ScenesManager.renderer.view);
-            requestAnimationFrame(ScenesManager.renderloop); //start rendering it as soon as its made
+            requestAnimationFrame(ScenesManager.renderloop);
             return this;
         };
         ScenesManager.renderloop = function () {
             requestAnimationFrame(function () { ScenesManager.renderloop(); });
             if (!this.currentScene || this.currentScene.isPaused()) {
                 return;
-            } //check if current scene exists and is not paused, then update it and render it
+            }
             this.currentScene.update();
             ScenesManager.renderer.render(this.currentScene);
         };
@@ -44,10 +42,11 @@ var test;
             }
             return false;
         };
-        ScenesManager.scenes = {}; //basically this is a key-value indexing guy, so instead of a flat number being the index its a string. i think.
+        ScenesManager.changeBackgroundColor = function (color) {
+            this.renderer.backgroundColor = color;
+        };
+        ScenesManager.scenes = {};
         return ScenesManager;
     })();
     test.ScenesManager = ScenesManager;
 })(test || (test = {}));
-//methods are static because we should only ever have one scene manager 
-//# sourceMappingURL=SceneManager.js.map

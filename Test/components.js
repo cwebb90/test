@@ -3,8 +3,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-//probably easier to draw each shape ourselves?
-//http://tetris.wikia.com/wiki/Tetromino
 var BaseShape = (function () {
     function BaseShape() {
         this.innersize = 40;
@@ -22,7 +20,6 @@ var Shape_I = (function () {
     }
     return Shape_I;
 })();
-//we could just make the shapes in paint, it may well be easier.
 var Shape_O = (function (_super) {
     __extends(Shape_O, _super);
     function Shape_O() {
@@ -62,4 +59,3 @@ var Shape_Z = (function () {
     }
     return Shape_Z;
 })();
-//# sourceMappingURL=components.js.map

@@ -9,8 +9,15 @@ module test {
         private static currentScene: Scene;
         public static renderer: PIXI.WebGLRenderer;
 
+        public static defaultWidth: number;
+        public static defaultHeight: number;
+        public static width: number;
+        public static height: number;
+
         public static create(width: number, height: number) { //initiate pixi.renderer and start game loop
             if (ScenesManager.renderer) return this; //if it already exists then return it.
+            this.defaultWidth = ScenesManager.width = width;
+            this.defaultHeight = ScenesManager.height = height;
             ScenesManager.renderer = new PIXI.WebGLRenderer(width, height);
             document.body.appendChild(ScenesManager.renderer.view);
             requestAnimationFrame(ScenesManager.renderloop); //start rendering it as soon as its made
@@ -47,6 +54,11 @@ module test {
                 return true;
             }
             return false;
+        }
+
+        //my own, might not work but who knows.
+        public static changeBackgroundColor(color: number) {
+            this.renderer.backgroundColor = color;
         }
     }
 }
